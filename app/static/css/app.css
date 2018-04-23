@@ -4,10 +4,12 @@ body {
 
 .grid-container {
     display: flex;
-    flex-wrap: nowrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
     background-color: #2196F3;
   }
   .grid-item {
+    
     border: 1px hidden;
     padding: 5px;
   }

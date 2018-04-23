@@ -1,8 +1,7 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block main %}
-<h1 class="page-header">INFO3180 Lab 4</h1>
-{% include 'flash_messages.html' %}
+<h1 class="page-header">Images</h1>
 
 {% with messages = get_flashed_messages() %}
   {% if messages %}
@@ -16,5 +15,12 @@
   {% endif %}
 {% endwith %}
 
-<p class="lead">This Flask app demonstrates basic file uploads and basic authentication.</p>
+<ul>
+ {% for fils in files %}
+ <div class=grid-container>
+            <div class="grid-item">{{ fils|safe }}</div>
+            </div>
+    {% endfor %}
+
+</ul>
 {% endblock %}

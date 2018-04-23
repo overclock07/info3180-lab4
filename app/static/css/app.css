@@ -1,3 +1,17 @@
 body {
     padding-top: 5rem;
 }
+
+.grid-container {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #2196F3;
+  }
+  .grid-item {
+    border: 1px hidden;
+    padding: 5px;
+  }
+  
+  .grid-item img{
+    height: 200px;
+  }

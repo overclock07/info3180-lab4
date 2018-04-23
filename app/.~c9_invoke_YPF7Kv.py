@@ -48,20 +48,20 @@ def upload():
     
 @app.route('/files')
 def files():
-    """Render website's file listing page."""
+    """Render website's fil page."""
     if not session.get('logged_in'):
         abort(401)
-    """list files in directory"""
-    fils = []
-    for subdir, dirs, files in os.walk("app/static/uploads"):
-        for file in files:
-            if file[-4:] == '.jpg' or file[-4:] == '.JPG' or file[-4:] == '.png' or file[-4:] == '.PNG':
-                fils.append(""" <img src="/static/uploads/{}" alt="picture"> """.format(file))
-           
-            else:
-                fils.append(" {} ".format(file))
-    return render_template("files.html", files=fils)
+
+    file_folder = app.config['UPLOAD_FOLDER']
+
+    rootdir = os.getcwd()
+    dirs = []
+    
+    for subdir, dirs, files in os.walk(rootdir + file_folder):
+     for file in files:
+      dirs.append(os.path.join(subdir, file))
 	        
+    return render_template('files.html', files=d )
     
 @app.route('/login', methods=['POST', 'GET'])
 def login():
